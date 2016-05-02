@@ -7,7 +7,7 @@ namespace Url;
  *
  * @package Url
  */
-class Url
+class Url implements UrlInterface
 {
 
 	const URL_SCHEME_SEPARATOR = '://';
