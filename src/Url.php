@@ -78,38 +78,14 @@ class Url
 			$argumentType = (is_object($url)) ? get_class($url) : gettype($url);
 			throw new \InvalidArgumentException('Expected URL as string; got ' . $argumentType);
 		}
-		$scheme = parse_url($url, PHP_URL_SCHEME);
-		if (!is_null($scheme)) {
-			$this->setScheme($scheme);
-		}
-		$hostname = parse_url($url, PHP_URL_HOST);
-		if (!is_null($hostname)) {
-			$this->setHostname($hostname);
-		}
-		$port = parse_url($url, PHP_URL_PORT);
-		if (!is_null($port)) {
-			$this->setPort($port);
-		}
-		$username = parse_url($url, PHP_URL_USER);
-		if (!is_null($username)) {
-			$this->setUsername($username);
-		}
-		$password = parse_url($url, PHP_URL_PASS);
-		if (!is_null($password)) {
-			$this->setPassword($password);
-		}
-		$path = parse_url($url, PHP_URL_PATH);
-		if (!is_null($path)) {
-			$this->setPath($path);
-		}
-		$queryString = parse_url($url, PHP_URL_QUERY);
-		if (!is_null($queryString)) {
-			$this->parseQueryString($queryString);
-		}
-		$fragment = parse_url($url, PHP_URL_FRAGMENT);
-		if (!is_null($fragment)) {
-			$this->setFragment($fragment);
-		}
+		$this->setScheme(parse_url($url, PHP_URL_SCHEME));
+		$this->setHostname(parse_url($url, PHP_URL_HOST));
+		$this->setPort(parse_url($url, PHP_URL_PORT));
+		$this->setUsername(parse_url($url, PHP_URL_USER));
+		$this->setPassword(parse_url($url, PHP_URL_PASS));
+		$this->setPath(parse_url($url, PHP_URL_PATH));
+		$this->parseQueryString(parse_url($url, PHP_URL_QUERY));
+		$this->setFragment(parse_url($url, PHP_URL_FRAGMENT));
 		return $this;
 	}
 
@@ -119,6 +95,10 @@ class Url
 	 */
 	public function parseQueryString($queryString)
 	{
+		if (is_null($queryString)) {
+			$this->clearQueryParameters();
+			return $this;
+		}
 		$queryParameters = array();
 		parse_str($queryString, $queryParameters);
 		foreach ($queryParameters as $queryParameterKey => $queryParameterValue) {
@@ -189,7 +169,7 @@ class Url
 	 */
 	public function setScheme($scheme)
 	{
-		if (!is_string($scheme)) {
+		if (!is_null($scheme) && !is_string($scheme)) {
 			$argumentType = (is_object($scheme)) ? get_class($scheme) : gettype($scheme);
 			throw new \InvalidArgumentException('Expected scheme as string; got ' . $argumentType);
 		}
@@ -219,7 +199,7 @@ class Url
 	 */
 	public function setHostname($hostname)
 	{
-		if (!is_string($hostname)) {
+		if (!is_null($hostname) && !is_string($hostname)) {
 			$argumentType = (is_object($hostname)) ? get_class($hostname) : gettype($hostname);
 			throw new \InvalidArgumentException('Expected hostname as string; got ' . $argumentType);
 		}
@@ -249,7 +229,7 @@ class Url
 	 */
 	public function setPort($port)
 	{
-		if (!is_int($port)) {
+		if (!is_null($port) && !is_int($port)) {
 			$argumentType = (is_object($port)) ? get_class($port) : gettype($port);
 			throw new \InvalidArgumentException('Expected port as integer; got ' . $argumentType);
 		}
@@ -279,7 +259,7 @@ class Url
 	 */
 	public function setPath($path)
 	{
-		if (!is_string($path)) {
+		if (!is_null($path) && !is_string($path)) {
 			$argumentType = (is_object($path)) ? get_class($path) : gettype($path);
 			throw new \InvalidArgumentException('Expected path as string; got ' . $argumentType);
 		}
@@ -317,6 +297,10 @@ class Url
 	 */
 	public function setQueryParameters($queryParameters)
 	{
+		if (is_null($queryParameters)) {
+			$this->clearQueryParameters();
+			return $this;
+		}
 		if (!is_array($queryParameters)) {
 			$argumentType = (is_object($queryParameters)) ? get_class($queryParameters) : gettype($queryParameters);
 			throw new \InvalidArgumentException('Expected query parameters as array; got ' . $argumentType);
@@ -368,6 +352,10 @@ class Url
 	 */
 	public function removeQueryParameterByKey($key)
 	{
+		if (!is_string($key)) {
+			$argumentType = (is_object($key)) ? get_class($key) : gettype($key);
+			throw new \InvalidArgumentException('Expected query parameter key as string; got ' . $argumentType);
+		}
 		for ($i = 0; $i < count($this->queryParameters); $i++) {
 			if ($this->queryParameters[$i]->getKey() === $key) {
 				unset($this->queryParameters[$i]);
@@ -408,7 +396,7 @@ class Url
 	 */
 	public function setUsername($username)
 	{
-		if (!is_string($username)) {
+		if (!is_null($username) && !is_string($username)) {
 			$argumentType = (is_object($username)) ? get_class($username) : gettype($username);
 			throw new \InvalidArgumentException('Expected username as string; got ' . $argumentType);
 		}
@@ -438,7 +426,7 @@ class Url
 	 */
 	public function setPassword($password)
 	{
-		if (!is_string($password)) {
+		if (!is_null($password) && !is_string($password)) {
 			$argumentType = (is_object($password)) ? get_class($password) : gettype($password);
 			throw new \InvalidArgumentException('Expected password as string; got ' . $argumentType);
 		}
@@ -468,7 +456,7 @@ class Url
 	 */
 	public function setFragment($fragment)
 	{
-		if (!is_string($fragment)) {
+		if (!is_null($fragment) && !is_string($fragment)) {
 			$argumentType = (is_object($fragment)) ? get_class($fragment) : gettype($fragment);
 			throw new \InvalidArgumentException('Expected fragment as string; got ' . $argumentType);
 		}
