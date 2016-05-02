@@ -10,14 +10,6 @@ namespace Url;
 class Url implements UrlInterface
 {
 
-	const URL_SCHEME_SEPARATOR = '://';
-	const URL_CREDENTIALS_SEPARATOR = ':';
-	const URL_AUTHENTICATION_SEPARATOR = '@';
-	const URL_PORT_SEPARATOR = ':';
-	const URL_QUERYSTRING_SEPARATOR = '?';
-	const URL_QUERY_SEPARATOR = '&';
-	const URL_FRAGMENT_SEPARATOR = '#';
-
 	/**
 	 * @var string
 	 */
