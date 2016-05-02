@@ -308,6 +308,33 @@ class Url implements UrlInterface
 	}
 
 	/**
+	 * @param mixed[] $queryParameters
+	 * @return $this
+	 */
+	public function setQueryParametersFromArray(array $queryParameters)
+	{
+		if (is_null($queryParameters)) {
+			$this->clearQueryParameters();
+			return $this;
+		}
+		if (!is_array($queryParameters)) {
+			$argumentType = (is_object($queryParameters)) ? get_class($queryParameters) : gettype($queryParameters);
+			throw new \InvalidArgumentException('Expected query parameters as array; got ' . $argumentType);
+		}
+		foreach ($queryParameters as $queryParameter) {
+			if (!is_scalar($queryParameter)) {
+				$argumentType = (is_object($queryParameter)) ? get_class($queryParameter) : gettype($queryParameter);
+				throw new \InvalidArgumentException('Expected query parameter values as scalar; found ' . $argumentType);
+			}
+		}
+		$this->clearQueryParameters();
+		foreach ($queryParameters as $queryParameterKey => $queryParameterValue) {
+			$this->queryParameters[] = new QueryParameter($queryParameterKey, $queryParameterValue);
+		}
+		return $this;
+	}
+
+	/**
 	 * @param QueryParameterInterface $queryParameter
 	 * @return $this
 	 */
