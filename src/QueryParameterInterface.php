@@ -1,11 +1,11 @@
 <?php
 
-namespace Url;
+namespace Markenwerk\UrlUtil;
 
 /**
  * Interface QueryParameterInterface
  *
- * @package Url
+ * @package Markenwerk\UrlUtil
  */
 interface QueryParameterInterface
 {

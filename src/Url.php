@@ -1,11 +1,11 @@
 <?php
 
-namespace Url;
+namespace Markenwerk\UrlUtil;
 
 /**
  * Class Url
  *
- * @package Url
+ * @package Markenwerk\UrlUtil
  */
 class Url implements UrlInterface
 {

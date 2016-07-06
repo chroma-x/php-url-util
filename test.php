@@ -4,9 +4,9 @@ namespace Project;
 
 require_once('vendor/autoload.php');
 
-use Url;
+use Markenwerk\UrlUtil;
 
-$url = new Url\Url('https://john:secret@mydomain.com:8443/path/to/resource?arg1=123&arg2=test#fragment');
+$url = new UrlUtil\Url('https://john:secret@mydomain.com:8443/path/to/resource?arg1=123&arg2=test#fragment');
 
 $scheme = $url->getScheme();
 fwrite(STDOUT, 'Scheme "' . $scheme . '"' . PHP_EOL);
@@ -42,8 +42,8 @@ $url
 	->setPassword('supersecret')
 	->setPath('path/to/another/resource')
 	->removeQueryParameterByKey('arg2')
-	->addQueryParameter(new Url\QueryParameter('arg1', '456'))
-	->addQueryParameter(new Url\QueryParameter('arg3', 'test'))
+	->addQueryParameter(new UrlUtil\QueryParameter('arg1', '456'))
+	->addQueryParameter(new UrlUtil\QueryParameter('arg3', 'test'))
 	->setFragment('target');
 
 fwrite(STDOUT, 'URL "' . $url->buildUrl() . '"' . PHP_EOL);
