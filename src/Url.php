@@ -359,6 +359,7 @@ class Url implements UrlInterface
 		for ($i = 0; $i < count($this->queryParameters); $i++) {
 			if ($this->queryParameters[$i]->getKey() === $queryParameter->getKey()) {
 				unset($this->queryParameters[$i]);
+				$this->queryParameters = array_values($this->queryParameters);
 				return $this;
 			}
 		}
@@ -378,6 +379,7 @@ class Url implements UrlInterface
 		for ($i = 0; $i < count($this->queryParameters); $i++) {
 			if ($this->queryParameters[$i]->getKey() === $key) {
 				unset($this->queryParameters[$i]);
+				$this->queryParameters = array_values($this->queryParameters);
 				return $this;
 			}
 		}
