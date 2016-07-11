@@ -78,6 +78,17 @@ class UrlTest extends \PHPUnit_Framework_TestCase
 		$expected = 'http://doe:supersecret@yourdomain.com:8080/path/to/another/resource?arg1=456&arg3=test#target';
 		$this->assertEquals($expected, $url->buildUrl());
 
+		$url->clearQueryParameters();
+		$this->assertFalse($url->hasQueryParameters());
+
+		$url->setQueryParametersFromArray(array(
+			'arg1' => 1,
+			'arg2' => 2
+		));
+
+		$this->assertTrue($url->hasQueryParameters());
+		$this->assertEquals(2, $url->countQueryParameters());
+
 	}
 
 }
