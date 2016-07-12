@@ -10,25 +10,91 @@ namespace Markenwerk\UrlUtil;
 class UrlTest extends \PHPUnit_Framework_TestCase
 {
 
-	public function testInvalidArguments()
+	public function testInvalidArgument1()
 	{
 		$this->setExpectedException(get_class(new \InvalidArgumentException()));
 		new QueryParameter(1, 1);
+	}
+
+	public function testInvalidArgument2()
+	{
 		$this->setExpectedException(get_class(new \InvalidArgumentException()));
 		new QueryParameter('arg1', new \Exception());
+	}
+
+	public function testInvalidArgument3()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
 		new Url(array());
+	}
+
+	public function testInvalidArgument4()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
 		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
 		$url->setScheme(1.4);
+	}
+
+	public function testInvalidArgument5()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
 		$url->setHostname(0);
+	}
+
+	public function testInvalidArgument6()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
 		$url->setPort('invalid');
+	}
+
+	public function testInvalidArgument7()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
 		$url->setPath(12);
-		$url->setQueryParameters('asd');
+	}
+
+	public function testInvalidArgument9()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
 		$url->setQueryParameters(array('asd'));
-		$url->setQueryParametersFromArray('asd');
+	}
+
+	public function testInvalidArgument11()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
 		$url->setQueryParametersFromArray(array(array()));
+	}
+
+	public function testInvalidArgument12()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
 		$url->removeQueryParameterByKey(1);
+	}
+
+	public function testInvalidArgument13()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
 		$url->setUsername(array());
+	}
+
+	public function testInvalidArgument14()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
 		$url->setPassword(array());
+	}
+
+	public function testInvalidArgument15()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
 		$url->setFragment(array());
 	}
 
