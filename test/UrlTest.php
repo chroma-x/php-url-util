@@ -14,7 +14,8 @@ class UrlTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->setExpectedException(get_class(new \InvalidArgumentException()));
 		new QueryParameter(1, 1);
-		new QueryParameter('arg1', array());
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		new QueryParameter('arg1', new \Exception());
 		new Url(array());
 		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
 		$url->setScheme(1.4);
