@@ -64,6 +64,14 @@ class QueryParameter implements QueryParameterInterface
 	}
 
 	/**
+	 * @return string
+	 */
+	public function getEscapedValue()
+	{
+		return urlencode((string)$this->value);
+	}
+
+	/**
 	 * @param mixed $value
 	 * @return $this
 	 */

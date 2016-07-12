@@ -134,7 +134,7 @@ class Url implements UrlInterface
 		}
 		$queryParameters = array();
 		foreach ($this->getQueryParameters() as $queryParameter) {
-			$queryParameters[] = $queryParameter->getKey() . '=' . $queryParameter->getValue();
+			$queryParameters[] = $queryParameter->getKey() . '=' . $queryParameter->getEscapedValue();
 		}
 		return implode(self::URL_QUERY_SEPARATOR, $queryParameters);
 	}

@@ -35,6 +35,11 @@ interface QueryParameterInterface
 	public function getValue();
 
 	/**
+	 * @return string
+	 */
+	public function getEscapedValue();
+
+	/**
 	 * @param mixed $value
 	 * @return $this
 	 */
