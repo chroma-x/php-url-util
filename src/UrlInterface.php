@@ -130,7 +130,7 @@ interface UrlInterface
 	 * @param QueryParameterInterface[] $queryParameters
 	 * @return $this
 	 */
-	public function setQueryParameters($queryParameters);
+	public function setQueryParameters(array $queryParameters);
 
 	/**
 	 * @param mixed[] $queryParameters

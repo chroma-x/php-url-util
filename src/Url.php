@@ -287,12 +287,8 @@ class Url implements UrlInterface
 	 * @param QueryParameterInterface[] $queryParameters
 	 * @return $this
 	 */
-	public function setQueryParameters($queryParameters)
+	public function setQueryParameters(array $queryParameters)
 	{
-		if (is_null($queryParameters)) {
-			$this->clearQueryParameters();
-			return $this;
-		}
 		if (!is_array($queryParameters)) {
 			$argumentType = (is_object($queryParameters)) ? get_class($queryParameters) : gettype($queryParameters);
 			throw new \InvalidArgumentException('Expected query parameters as array; got ' . $argumentType);
@@ -313,10 +309,6 @@ class Url implements UrlInterface
 	 */
 	public function setQueryParametersFromArray(array $queryParameters)
 	{
-		if (is_null($queryParameters)) {
-			$this->clearQueryParameters();
-			return $this;
-		}
 		if (!is_array($queryParameters)) {
 			$argumentType = (is_object($queryParameters)) ? get_class($queryParameters) : gettype($queryParameters);
 			throw new \InvalidArgumentException('Expected query parameters as array; got ' . $argumentType);

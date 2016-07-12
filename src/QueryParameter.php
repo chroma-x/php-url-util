@@ -28,8 +28,9 @@ class QueryParameter implements QueryParameterInterface
 	 */
 	public function __construct($key, $value)
 	{
-		$this->key = $key;
-		$this->value = $value;
+		$this
+			->setKey($key)
+			->setValue($value);
 	}
 
 	/**

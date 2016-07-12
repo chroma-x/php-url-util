@@ -10,8 +10,32 @@ namespace Markenwerk\UrlUtil;
 class UrlTest extends \PHPUnit_Framework_TestCase
 {
 
+	public function testInvalidArguments()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		new QueryParameter(1, 1);
+		new QueryParameter('arg1', array());
+		new Url(array());
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
+		$url->setScheme(1.4);
+		$url->setHostname(0);
+		$url->setPort('invalid');
+		$url->setPath(12);
+		$url->setQueryParameters('asd');
+		$url->setQueryParameters(array('asd'));
+		$url->setQueryParametersFromArray('asd');
+		$url->setQueryParametersFromArray(array(array()));
+		$url->removeQueryParameterByKey(1);
+		$url->setUsername(array());
+		$url->setPassword(array());
+		$url->setFragment(array());
+	}
+
 	public function testParser()
 	{
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
+		$url->buildQueryString();
+
 		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource?arg1=123&arg2=test#fragment');
 
 		$this->assertTrue($url->hasScheme());
@@ -69,6 +93,8 @@ class UrlTest extends \PHPUnit_Framework_TestCase
 			->setPassword('supersecret')
 			->setPath('path/to/another/resource')
 			->removeQueryParameterByKey('arg2')
+			->removeQueryParameterByKey('arg12')
+			->removeQueryParameter(new QueryParameter('1', '2'))
 			->addQueryParameter($queryParameter)
 			->addQueryParameter(new QueryParameter('arg3', 'test'))
 			->setFragment('target');
