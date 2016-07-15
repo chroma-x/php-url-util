@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/markenwerk/php-url-util.svg?branch=master)](https://travis-ci.org/markenwerk/php-url-util)
 [![Test Coverage](https://codeclimate.com/github/markenwerk/php-url-util/badges/coverage.svg)](https://codeclimate.com/github/markenwerk/php-url-util/coverage)
 [![Dependency Status](https://www.versioneye.com/user/projects/57272fdaa0ca35005083f1e6/badge.svg)](https://www.versioneye.com/user/projects/57272fdaa0ca35005083f1e6)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/5520229c-0b61-4e83-92cb-9015fc7d60f2.svg)](https://insight.sensiolabs.com/projects/5520229c-0b61-4e83-92cb-9015fc7d60f2)
 [![Code Climate](https://codeclimate.com/github/markenwerk/php-url-util/badges/gpa.svg)](https://codeclimate.com/github/markenwerk/php-url-util)
 [![Latest Stable Version](https://poser.pugx.org/markenwerk/url-util/v/stable)](https://packagist.org/packages/markenwerk/url-util)
 [![Total Downloads](https://poser.pugx.org/markenwerk/url-util/downloads)](https://packagist.org/packages/markenwerk/url-util)
