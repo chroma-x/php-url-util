@@ -332,7 +332,8 @@ class Url implements UrlInterface
 	 */
 	public function addQueryParameter(QueryParameterInterface $queryParameter)
 	{
-		for ($i = 0; $i < count($this->queryParameters); $i++) {
+		$queryParameterCount = $this->countQueryParameters();
+		for ($i = 0; $i < $queryParameterCount; $i++) {
 			if ($this->queryParameters[$i]->getKey() === $queryParameter->getKey()) {
 				$this->queryParameters[$i] = $queryParameter;
 				return $this;
@@ -348,7 +349,8 @@ class Url implements UrlInterface
 	 */
 	public function removeQueryParameter(QueryParameterInterface $queryParameter)
 	{
-		for ($i = 0; $i < count($this->queryParameters); $i++) {
+		$queryParameterCount = $this->countQueryParameters();
+		for ($i = 0; $i < $queryParameterCount; $i++) {
 			if ($this->queryParameters[$i]->getKey() === $queryParameter->getKey()) {
 				unset($this->queryParameters[$i]);
 				$this->queryParameters = array_values($this->queryParameters);
@@ -368,7 +370,8 @@ class Url implements UrlInterface
 			$argumentType = (is_object($key)) ? get_class($key) : gettype($key);
 			throw new \InvalidArgumentException('Expected query parameter key as string; got ' . $argumentType);
 		}
-		for ($i = 0; $i < count($this->queryParameters); $i++) {
+		$queryParameterCount = $this->countQueryParameters();
+		for ($i = 0; $i < $queryParameterCount; $i++) {
 			if ($this->queryParameters[$i]->getKey() === $key) {
 				unset($this->queryParameters[$i]);
 				$this->queryParameters = array_values($this->queryParameters);
