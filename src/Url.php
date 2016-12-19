@@ -382,6 +382,25 @@ class Url implements UrlInterface
 	}
 
 	/**
+	 * @param string $key
+	 * @return bool
+	 */
+	public function hasQueryParameterWithKey($key)
+	{
+		if (!is_string($key)) {
+			$argumentType = (is_object($key)) ? get_class($key) : gettype($key);
+			throw new \InvalidArgumentException('Expected query parameter key as string; got ' . $argumentType);
+		}
+		$queryParameterCount = $this->countQueryParameters();
+		for ($i = 0; $i < $queryParameterCount; $i++) {
+			if ($this->queryParameters[$i]->getKey() === $key) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * @return $this
 	 */
 	public function clearQueryParameters()

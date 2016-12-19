@@ -98,6 +98,13 @@ class UrlTest extends \PHPUnit_Framework_TestCase
 		$url->setFragment(array());
 	}
 
+	public function testInvalidArgument16()
+	{
+		$this->setExpectedException(get_class(new \InvalidArgumentException()));
+		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
+		$url->hasQueryParameterWithKey(array());
+	}
+
 	public function testParser()
 	{
 		$url = new Url('https://john:secret@mydomain.com:8443/path/to/resource');
@@ -108,6 +115,7 @@ class UrlTest extends \PHPUnit_Framework_TestCase
 		$this->assertTrue($url->hasScheme());
 		$this->assertTrue($url->hasHostname());
 		$this->assertTrue($url->hasPath());
+		$this->assertTrue($url->hasQueryParameterWithKey('arg1'));
 
 		$this->assertEquals(2, $url->countQueryParameters());
 
