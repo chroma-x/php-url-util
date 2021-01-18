@@ -1,5 +1,5 @@
 {
-  "name": "markenwerk/url-util",
+  "name": "chroma-x/url-util",
   "type": "library",
   "description": "A PHP library providing common URL implementation.",
   "keywords": [
