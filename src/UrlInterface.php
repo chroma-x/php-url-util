@@ -1,11 +1,11 @@
 <?php
 
-namespace Markenwerk\UrlUtil;
+namespace ChromaX\UrlUtil;
 
 /**
  * Interface UrlInterface
  *
- * @package Markenwerk\UrlUtil
+ * @package ChromaX\UrlUtil
  */
 interface UrlInterface
 {

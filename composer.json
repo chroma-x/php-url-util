@@ -5,18 +5,18 @@
   "keywords": [
     "URL"
   ],
-  "homepage": "http://markenwerk.net/",
+  "homepage": "http://chroma-x.de/",
   "license": "MIT",
   "authors": [
     {
       "name": "Martin Brecht-Precht",
-      "email": "mb@markenwerk.net",
-      "homepage": "http://markenwerk.net"
+      "email": "mb@chroma-x.de",
+      "homepage": "http://chroma-x.de"
     }
   ],
   "autoload": {
     "psr-4": {
-      "Markenwerk\\UrlUtil\\": "src/"
+      "ChromaX\\UrlUtil\\": "src/"
     }
   },
   "require": {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Markenwerk\UrlUtil;
+namespace ChromaX\UrlUtil;
 
 /**
  * Interface QueryParameterInterface
  *
- * @package Markenwerk\UrlUtil
+ * @package ChromaX\UrlUtil
  */
 interface QueryParameterInterface
 {

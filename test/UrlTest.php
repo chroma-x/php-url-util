@@ -1,11 +1,11 @@
 <?php
 
-namespace Markenwerk\UrlUtil;
+namespace ChromaX\UrlUtil;
 
 /**
  * Class UrlTest
  *
- * @package Markenwerk\UrlUtil
+ * @package ChromaX\UrlUtil
  */
 class UrlTest extends \PHPUnit_Framework_TestCase
 {

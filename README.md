@@ -1,13 +1,13 @@
 # PHP URL Util
 
-[![Build Status](https://travis-ci.org/markenwerk/php-url-util.svg?branch=master)](https://travis-ci.org/markenwerk/php-url-util)
-[![Test Coverage](https://codeclimate.com/github/markenwerk/php-url-util/badges/coverage.svg)](https://codeclimate.com/github/markenwerk/php-url-util/coverage)
+[![Build Status](https://travis-ci.org/chroma-x/php-url-util.svg?branch=master)](https://travis-ci.org/chroma-x/php-url-util)
+[![Test Coverage](https://codeclimate.com/github/chroma-x/php-url-util/badges/coverage.svg)](https://codeclimate.com/github/chroma-x/php-url-util/coverage)
 [![Dependency Status](https://www.versioneye.com/user/projects/57272fdaa0ca35005083f1e6/badge.svg)](https://www.versioneye.com/user/projects/57272fdaa0ca35005083f1e6)
 [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/df239ecc-f336-4669-a017-fc826497115a.svg)](https://insight.sensiolabs.com/projects/df239ecc-f336-4669-a017-fc826497115a)
-[![Code Climate](https://codeclimate.com/github/markenwerk/php-url-util/badges/gpa.svg)](https://codeclimate.com/github/markenwerk/php-url-util)
-[![Latest Stable Version](https://poser.pugx.org/markenwerk/url-util/v/stable)](https://packagist.org/packages/markenwerk/url-util)
-[![Total Downloads](https://poser.pugx.org/markenwerk/url-util/downloads)](https://packagist.org/packages/markenwerk/url-util)
-[![License](https://poser.pugx.org/markenwerk/url-util/license)](https://packagist.org/packages/markenwerk/url-util)
+[![Code Climate](https://codeclimate.com/github/chroma-x/php-url-util/badges/gpa.svg)](https://codeclimate.com/github/chroma-x/php-url-util)
+[![Latest Stable Version](https://poser.pugx.org/chroma-x/url-util/v/stable)](https://packagist.org/packages/chroma-x/url-util)
+[![Total Downloads](https://poser.pugx.org/chroma-x/url-util/downloads)](https://packagist.org/packages/chroma-x/url-util)
+[![License](https://poser.pugx.org/chroma-x/url-util/license)](https://packagist.org/packages/chroma-x/url-util)
 
 A PHP library providing common URL implementation.
 
@@ -16,7 +16,7 @@ A PHP library providing common URL implementation.
 ```{json}
 {
    	"require": {
-        "markenwerk/url-util": "~2.0"
+        "chroma-x/url-util": "~2.0"
     }
 }
 ```
@@ -32,7 +32,7 @@ require_once('path/to/vendor/autoload.php');
 ### Parsing an URL
 
 ```{php}
-use Markenwerk\UrlUtil;
+use ChromaX\UrlUtil;
 
 $url = new UrlUtil\Url('https://john:secret@mydomain.com:8443/path/to/resource?arg1=123&arg2=test#fragment');
 
@@ -97,7 +97,7 @@ URL "http://doe:supersecret@yourdomain.com:8080/path/to/another/resource?arg1=45
 ## Contribution
 
 Contributing to our projects is always very appreciated.  
-**But: please follow the contribution guidelines written down in the [CONTRIBUTING.md](https://github.com/markenwerk/php-url-util/blob/master/CONTRIBUTING.md) document.**
+**But: please follow the contribution guidelines written down in the [CONTRIBUTING.md](https://github.com/chroma-x/php-url-util/blob/master/CONTRIBUTING.md) document.**
 
 ## License
 
